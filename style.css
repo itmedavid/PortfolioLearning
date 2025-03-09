@@ -1,9 +1,9 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 * {
     margin: 0; 
     padding: 0; 
+    box-sizing: border-box;
 }
 
 body {
@@ -11,6 +11,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
 html {
@@ -22,38 +24,36 @@ p {
 }
 
 /* TRANSITION */ 
-
 a, .btn {
     transition: all 300ms ease;
 }
 
-
-/* Desktop Nav */ 
-
-nav, .nav-links { 
-    display: flex; 
-    
-}
-
+/* Navigation Bar */ 
 nav {
-    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white; /* Ensures visibility over content */
+    padding: 1rem 2rem;
+    z-index: 1000; /* Ensures nav stays on top */
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    height: 17vh;
+    height: 10vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.nav-links{
+.nav-links {
     display: flex;
-    justify-content: flex-start;
-    gap: 2rem; 
+    gap: 2rem;
     list-style: none;
-    font-size: 1.5rem;
-    padding: 0; 
-    margin: 0; 
+    font-size: 1.2rem;
 }
 
 a {
     color: black; 
-        text-decoration: none;
+    text-decoration: none;
     text-decoration-color: white;
 }
 
@@ -70,4 +70,38 @@ a:hover {
 
 .logo:hover { 
     cursor: default;
+}
+
+/* Main Logo Centering */
+.main-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    transition: all 1.0s ease-in-out;
+    z-index: 10; /* Ensure logo stays visible */
+    padding-bottom: 5rem;
+}   
+
+/* Shrinks the logo and moves it up on scroll */
+.scrolled .main-logo {
+    top: 15%; /* Moves up when scrolling */
+    width: 400px; /* Shrinks size */
+    opacity: 0.7;
+}
+
+/* Content Section Below Logo */
+.about-me-content, .p {
+    position: relative;
+    text-align: center;
+    margin-top: 60vh; /* Pushes content below the logo */
+    padding: 1rem;
+}
+
+.about-header {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 200;
 }
